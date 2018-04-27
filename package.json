@@ -1,0 +1,46 @@
+{
+  "name": "panhandle",
+  "version": "1.0.0",
+  "description": "Compile Handlebars Templates in a Github Pages Static Site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neilthawani/panhandle.git"
+  },
+  "keywords": [
+    "handlebars",
+    "templates",
+    "github",
+    "pages"
+  ],
+  "author": "Neil Thawani",
+  "license": "MIT",
+  "bin": {
+    "panhandle": "./index.js",
+    "ph": "./index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/neilthawani/panhandle/issues"
+  },
+  "homepage": "https://github.com/neilthawani/panhandle#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.15.1",
+    "figlet": "^1.2.0",
+    "fs-extra": "^5.0.0",
+    "glob": "^7.0.0",
+    "handlebars": "^4.0.5",
+    "inquirer": "^5.2.0",
+    "lodash": "^4.17.10",
+    "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "touch": "^3.1.0"
+  }
+}

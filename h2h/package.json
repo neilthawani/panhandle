@@ -1,0 +1,29 @@
+{
+  "name": "rowschool",
+  "version": "1.0.0",
+  "description": "Website for Row School",
+  "main": "server.js",
+  "dependencies": {
+    "handlebars": "^4.0.11",
+    "live-server": "^1.2.0",
+    "node-sass": "^4.8.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build-css": "node-sass --include-path scss src/static/styles/main.scss styles/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "build-views": "node build/build.js -d cwd -p \"src/views/partials/**/*.hbs\" -l \"src/views/layouts/**/*.hbs\" -t \"src/views/templates/**/*.hbs\" -v",
+    "watch-views": "nodemon -e hbs -x \"npm run build-views\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rowschool/rowschool.git"
+  },
+  "author": "Neil Thawani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rowschool/rowschool/issues"
+  },
+  "homepage": "https://github.com/rowschool/rowschool#readme"
+}
