@@ -2,15 +2,21 @@
 
 var chalk = require("chalk");
 var clear = require("clear");
-// var co = require("co");
 var figlet = require("figlet");
-// var prompt = require("co-prompt");
-// var program = require("commander");
 
-const argv = require('minimist')(process.argv.slice(2));
+const argv = require('minimist')(process.argv.slice(2))["_"];
 const initializer = require("./lib/initializer");
 
-initializer.createProject(argv["_"]);
+// TODO: Put an async/await here and in front of every other method before a console.log.
+var projectName = initializer.createProject(argv);
+console.log("\n");
+console.log(`Finished creating project: ${chalk.yellow(projectName)}!`);
+console.log("\n");
+
+// var co = require("co");
+
+// var prompt = require("co-prompt");
+// var program = require("commander");
 
 // ph new "testproject"
 // creates an object: { _: 'new', 'testproject'}
