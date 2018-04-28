@@ -1,5 +1,6 @@
 TODO:
-Remove unnecessary packages and files.
+Verify unnecessary packages and files are removed
+Port files lib to open source repository on its own
 
 End-result should produce folder structure from handlebars-to-html README:
 
