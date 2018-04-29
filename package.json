@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/neilthawani/panhandle#readme",
   "dependencies": {
+    "async": "^2.6.0",
+    "await": "^0.2.6",
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
@@ -41,6 +43,7 @@
     "lodash": "^4.17.10",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
-    "touch": "^3.1.0"
+    "touch": "^3.1.0",
+    "write-pkg": "^3.1.0"
   }
 }

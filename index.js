@@ -10,8 +10,14 @@ const initializer = require("./lib/initializer");
 // TODO: Put an async/await here and in front of every other method before a console.log.
 var projectName = initializer.createProject(argv);
 console.log("\n");
-console.log(`Finished creating project: ${chalk.yellow(projectName)}!`);
+console.log("Finished creating project:", chalk.yellow(projectName));
 console.log("\n");
+
+// let fs = require("fs-extra");
+// let glob = require("glob");
+// let Handlebars = require("handlebars");
+// let mkdirp = require("mkdirp");
+// let path = require("path");
 
 // var co = require("co");
 
