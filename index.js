@@ -7,11 +7,23 @@ var figlet = require("figlet");
 const argv = require('minimist')(process.argv.slice(2))["_"];
 const initializer = require("./lib/initializer");
 
+var inquirer = require("./lib/inquirer");
+
 // TODO: Put an async/await here and in front of every other method before a console.log.
-var projectName = initializer.createProject(argv);
-console.log("\n");
-console.log("Finished creating project:", chalk.yellow(projectName));
-console.log("\n");
+
+const main = async function() {
+    try {
+      ffewfw
+        var projectName = await initializer.createProject(argv);
+        console.log("\n");
+        console.log("Finished creating project:", chalk.yellow(projectName));
+        console.log("\n");
+    } catch(error) {
+        console.log("\n");
+        console.trace(chalk.red.bold(error));
+        console.log("\n")
+    }
+}();
 
 // let fs = require("fs-extra");
 // let glob = require("glob");
