@@ -13,7 +13,6 @@ var inquirer = require("./lib/inquirer");
 
 const main = async function() {
     try {
-      ffewfw
         var projectName = await initializer.createProject(argv);
         console.log("\n");
         console.log("Finished creating project:", chalk.yellow(projectName));
