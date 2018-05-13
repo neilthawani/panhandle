@@ -43,13 +43,13 @@ let main = function() {
         console.log("Creating project:", chalk.yellow(projectName));
         console.log("\n");
 
-        files.initializeProject("blueprints", cwd, projectName).then(() => {
-            config.setupPackageJson(cwd, projectName).then(() => {
+        files.initializeProject("blueprints", cwd, projectName)
+            .then(config.setupPackageJson(cwd, projectName)
+            .then(
                 console.log("\n");
                 console.log("Finished creating project:", chalk.yellow(projectName));
                 console.log("\n");
-            });
-        });
+            );
 
 
     }
