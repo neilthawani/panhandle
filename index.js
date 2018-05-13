@@ -48,11 +48,13 @@ let main = function() {
         files.editBaseTemplate(projectName);
         files.printFolderContents("blueprints", cwd, projectName);
 
-        config.setupPackageJson(cwd, projectName);
+        var fileWritten = await config.setupPackageJson(cwd, projectName);
 
-        console.log("\n");
-        console.log("Finished creating project:", chalk.yellow(projectName));
-        console.log("\n");
+        if (fileWritten) {
+            console.log("\n");
+            console.log("Finished creating project:", chalk.yellow(projectName));
+            console.log("\n");
+        }
     }
 };
 
