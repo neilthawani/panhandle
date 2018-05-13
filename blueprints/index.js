@@ -1,13 +1,11 @@
 #!/usr/bin/env node
 
-// let HandlebarsToHtml = require("../lib/handlebars-to-html");
-
 var liveServer = require("live-server");
 var childProcess = require("child_process");
 
 var params = {
 	open: false,
-	file: "*", // TODO: set this
+	file: "*",
 	wait: 500,
 	logLevel: 2
 };

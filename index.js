@@ -1,71 +1,58 @@
 #!/usr/bin/env node --harmony
 
-var chalk = require("chalk");
-var clear = require("clear");
-var figlet = require("figlet");
+var chalk = require("chalk"); // colorful terminal text
+var clear = require("clear"); // imports shell command
+var figlet = require("figlet"); // large ASCII art styled text
+
+const CLI         = require('clui');
+const Spinner     = CLI.Spinner;
+
+const config = require("./config");
+const files = require("./files");
 
 const argv = require('minimist')(process.argv.slice(2))._;
 const initializer = require("./lib/initializer");
 
 // TODO: Put an async/await here and in front of every other method before a console.log.
-
 const main = async function() {
-    initializer.createProject(argv);
+    var projectName = "";
+    projectName = validateArgs(argv);
+
+    if (projectName.length) {
+        var cwd = `${process.cwd()}`;
+
+        clear();
+        console.log(
+            chalk.yellow.bold(
+                figlet.textSync('Panhandle', { horizontalLayout: "full" })
+            )
+        );
+        console.log("Creating project:", chalk.yellow(projectName));
+        console.log("\n");
+
+        // files.createProjectDirectory(projectName);
+        // files.copyProjectContents(projectName);
+        // files.editBaseTemplate(projectName);
+        // files.printFolderContents("blueprints", cwd, projectName);
+
+        config.setupPackageJson(cwd, projectName);
+
+        console.log("\n");
+        console.log("Finished creating project:", chalk.yellow(projectName));
+        console.log("\n");
+    }
 }();
 
-// let fs = require("fs-extra");
-// let glob = require("glob");
-// let Handlebars = require("handlebars");
-// let mkdirp = require("mkdirp");
-// let path = require("path");
+var validateArgs = function(argv) {
+    var hasValidArgs = argv[0] === "new" && argv.length > 1;
 
-// var co = require("co");
-
-// var prompt = require("co-prompt");
-// var program = require("commander");
-
-// ph new "testproject"
-// creates an object: { _: 'new', 'testproject'}
-// read minimist docs to get more ideas on what to do
-
-// const files = require('./lib/files');
-// const inquirer  = require('./lib/inquirer');
-
-// Spinner
-// const CLI         = require('clui');
-// const Spinner     = CLI.Spinner;
-// sets up a spinner on the console, stops when you ask it to
-// const status = new Spinner('Authenticating you, please wait...');
-// status.start();
-// status.stop();
-
-// asks user for credentials, then logs it
-// const run = async () => {
-//   const credentials = await inquirer.askGithubCredentials();
-//   console.log(credentials);
-// }
-// run();
-
-// program.arguments('<project name>')
-        // .option('-u, --username <username>', 'The user to authenticate as')
-        // .option('-p, --password <password>', 'The user\'s password')
-        // .options('new', 'new <project name>')
-        // .action(function(file) {
-        //     co(function *() {
-        //         var username = yield prompt('username: ');
-        //         var password = yield prompt.password('password: ');
-        //         console.log('user: %s pass: %s file: %s',
-        //         username, password, file);
-        //         console.log(chalk.bold.cyan('Snippet created: ') + file);
-        //     });
-        // })
-        // .parse(process.argv);
-
-// snippet -u kannonboy -p correcthorsebatterystaple my_awesome_file
-// outputs:
-// user: kannonboy pass: correcthorsebatterystaple file: my_awesome_file
-// to the console
-
-// running
-// ph --help
-// outputs a man page for the 'snippet' command, as noted above in the params for .option
+    if (!hasValidArgs) {
+        console.log("\n");
+        console.log(chalk.yellow.bold("Usage:"), chalk.red("panhandle new <project name>"));
+        console.log("\n");
+        process.exit(0);
+    } else {
+        var projectName = argv.slice(1, argv.length).join("-");
+        return projectName;
+    }
+};
