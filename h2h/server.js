@@ -3,7 +3,7 @@ var childProcess = require("child_process");
 
 var params = {
 	open: false,
-	file: "*", // TODO: set this
+	file: "*",
 	wait: 500,
 	logLevel: 2
 };
