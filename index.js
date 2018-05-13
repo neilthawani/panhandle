@@ -7,14 +7,27 @@ var figlet = require("figlet"); // large ASCII art styled text
 const CLI         = require('clui');
 const Spinner     = CLI.Spinner;
 
-const config = require("./config");
-const files = require("./files");
+const config = require("./lib/config");
+const files = require("./lib/files");
 
 const argv = require('minimist')(process.argv.slice(2))._;
-const initializer = require("./lib/initializer");
+
+let validateArgs = function(argv) {
+    var hasValidArgs = argv[0] === "new" && argv.length > 1;
+
+    if (!hasValidArgs) {
+        console.log("\n");
+        console.log(chalk.yellow.bold("Usage:"), chalk.red("panhandle new <project name>"));
+        console.log("\n");
+        process.exit(0);
+    } else {
+        var projectName = argv.slice(1, argv.length).join("-");
+        return projectName;
+    }
+};
 
 // TODO: Put an async/await here and in front of every other method before a console.log.
-const main = async function() {
+let main = function() {
     var projectName = "";
     projectName = validateArgs(argv);
 
@@ -24,7 +37,7 @@ const main = async function() {
         clear();
         console.log(
             chalk.yellow.bold(
-                figlet.textSync('Panhandle', { horizontalLayout: "full" })
+                figlet.textSync("Panhandle", { horizontalLayout: "full" })
             )
         );
         console.log("Creating project:", chalk.yellow(projectName));
@@ -41,18 +54,6 @@ const main = async function() {
         console.log("Finished creating project:", chalk.yellow(projectName));
         console.log("\n");
     }
-}();
-
-var validateArgs = function(argv) {
-    var hasValidArgs = argv[0] === "new" && argv.length > 1;
-
-    if (!hasValidArgs) {
-        console.log("\n");
-        console.log(chalk.yellow.bold("Usage:"), chalk.red("panhandle new <project name>"));
-        console.log("\n");
-        process.exit(0);
-    } else {
-        var projectName = argv.slice(1, argv.length).join("-");
-        return projectName;
-    }
 };
+
+main();
