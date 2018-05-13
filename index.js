@@ -43,10 +43,10 @@ let main = function() {
         console.log("Creating project:", chalk.yellow(projectName));
         console.log("\n");
 
-        // files.createProjectDirectory(projectName);
-        // files.copyProjectContents(projectName);
-        // files.editBaseTemplate(projectName);
-        // files.printFolderContents("blueprints", cwd, projectName);
+        files.createProjectDirectory(projectName);
+        files.copyProjectContents(projectName);
+        files.editBaseTemplate(projectName);
+        files.printFolderContents("blueprints", cwd, projectName);
 
         config.setupPackageJson(cwd, projectName);
 
