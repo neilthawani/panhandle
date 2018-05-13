@@ -43,18 +43,15 @@ let main = function() {
         console.log("Creating project:", chalk.yellow(projectName));
         console.log("\n");
 
-        files.createProjectDirectory(projectName);
-        files.copyProjectContents(projectName);
-        files.editBaseTemplate(projectName);
-        files.printFolderContents("blueprints", cwd, projectName);
+        files.initializeProject("blueprints", cwd, projectName).then(() => {
+            config.setupPackageJson(cwd, projectName).then(() => {
+                console.log("\n");
+                console.log("Finished creating project:", chalk.yellow(projectName));
+                console.log("\n");
+            });
+        });
 
-        var fileWritten = await config.setupPackageJson(cwd, projectName);
 
-        if (fileWritten) {
-            console.log("\n");
-            console.log("Finished creating project:", chalk.yellow(projectName));
-            console.log("\n");
-        }
     }
 };
 
