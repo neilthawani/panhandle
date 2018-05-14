@@ -27,9 +27,9 @@ let validateArgs = function(argv) {
 };
 
 // TODO: Put an async/await here and in front of every other method before a console.log.
-let main = function() {
+let main = async function() {
     var projectName = "";
-    projectName = validateArgs(argv);
+    projectName = await validateArgs(argv);
 
     if (projectName.length) {
         var cwd = `${process.cwd()}`;
@@ -43,15 +43,21 @@ let main = function() {
         console.log("Creating project:", chalk.yellow(projectName));
         console.log("\n");
 
-        files.initializeProject("blueprints", cwd, projectName)
-            .then(config.setupPackageJson(cwd, projectName)
-            .then(
-                console.log("\n");
-                console.log("Finished creating project:", chalk.yellow(projectName));
-                console.log("\n");
-            );
+        try {
+            await files.initializeProject("blueprints", cwd, projectName);
+        } catch(error) {
+            console.log("Error initializing project:", error);
+        }
 
+        try {
+            await config.setupPackageJson(cwd, projectName);
+        } catch(error) {
+            console.log("Error setting up package.json", error);
+        }
 
+        console.log("\n");
+        console.log("Finished creating project:", chalk.yellow(projectName));
+        console.log("\n");
     }
 };
 
