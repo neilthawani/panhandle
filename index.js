@@ -26,7 +26,6 @@ let validateArgs = function(argv) {
     }
 };
 
-// TODO: Put an async/await here and in front of every other method before a console.log.
 let main = async function() {
     var projectName = "";
     projectName = await validateArgs(argv);

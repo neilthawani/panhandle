@@ -2,6 +2,10 @@
 
 Compile Handlebars Templates in a Github Pages Static Site
 
+### Developer's Note
+
+Panhandle's functionality works as-expected; however, there are some bugs with async/await that build the project in an unexpected order. If you are passionate about this idea and interested in contributing, please check out the Issues section!
+
 ### Requirements
 
 - [Node.js](nodejs.org)

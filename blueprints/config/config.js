@@ -1,5 +1,3 @@
-// TODO: Add a build "command" to package.json::bin so that the base config updates package.json scripts.
-
 module.exports = {
     baseFolder: "src/",
     globToMatch: {
