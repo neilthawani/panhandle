@@ -1,0 +1,13 @@
+// Desktop
+@media (min-width: 992px) {
+    .visible-phone {
+        display: none;
+    }
+}
+
+// Mobile
+@media (max-width: 991px) {
+    .hidden-phone {
+        display: none;
+    }
+}

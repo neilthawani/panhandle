@@ -1,0 +1,32 @@
+@function evenColumnWidth($num_columns, $width_precision)
+{
+  @return percentage(floor((1 / $num_columns) * $width_precision) / $width_precision)
+}
+
+@mixin evenColumnsMixin {
+  $columns: 12;
+
+  @for $column from 1 through $columns {
+    .even-columns-#{$column} {
+      list-style: none;
+      position: relative;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+
+      .even-column {
+        padding: 5px;
+        width: evenColumnWidth($column, 100);
+        position: relative;
+        box-sizing: border-box;
+        flex: 1 0 evenColumnWidth($column, 100);
+      }
+
+      .even-column:nth-last-child(-n+#{$column} + 1) + .even-column:nth-child(n+#{$column} + 1) {
+        max-width: evenColumnWidth($column, 10000);
+      }
+    }
+  }
+}
+
+@include evenColumnsMixin;

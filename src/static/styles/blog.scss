@@ -1,0 +1,152 @@
+.blog-post-item-list {
+    color: $figureColor;
+    padding: 20px 40px;
+    background-color: $white;
+    margin: 40px auto;
+    width: 75%;
+    box-shadow: 2px 2px 1px $figureColor;
+
+    a, a:-webkit-any-link {
+        background: none;
+    }
+}
+
+.blog-post-item {
+    margin-top: 40px;
+}
+
+.blog-post-item-link {
+    background: none;
+    font-size: 22px;
+}
+
+.blog-post-item-created-at {
+    font-size: 14px;
+}
+
+.blog-post-item-tags {
+    margin-top: 0px;
+    margin-block-end: 10px;
+
+    .blog-post-tag {
+        font-size: 14px;
+    }
+}
+
+.blog-post-container {
+    color: $figureColor;
+    padding: 20px 40px;
+    background-color: $white;
+    box-shadow: 2px 2px 1px $figureColor;
+    margin: 40px auto;
+    width: 75%;
+}
+
+.blog-post-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.blog-post-content {
+
+}
+
+.blog-post-tags {
+    margin-block-end: 20px;
+}
+
+.blog-post-tag {
+    color: $figureColor;
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: $white;
+    box-shadow: 2px 2px 1px $figureColor;
+    border: 1px solid $figureColor;
+    margin-top: 5px;
+
+    &:not(:last-child) {
+        margin-right: 5px;
+    }
+}
+
+.blog-post-created-at {
+    font-style: italic;
+    font-size: 18px;
+}
+
+@media (max-width: 991px) {
+    .blog-post-item-list {
+        margin: 25px 0 0 0;
+        padding: 20px;
+        width: inherit;
+    }
+
+    .blog-post-tags,
+    .blog-post-item-tags {
+        .blog-post-tag {
+            display: inline-block;
+        }
+    }
+
+    .blog-post-container {
+        margin: 25px 0 0 0;
+        width: inherit;
+
+        * {
+            max-width: -webkit-fill-available;
+        }
+    }
+}
+
+// create blog post
+.new-blog-post-container {
+    margin: 0 40px;
+
+    input {
+        border: 1px solid $figureColor;
+        font-family: inherit;
+        font-weight: 300;
+    }
+
+    #new-post-textarea, input {
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+#new-post-title {
+    font-size: 42px;
+
+}
+
+#new-post-subtitle {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+#new-post-textarea {
+}
+
+#new-post-tags {
+    font-size: 18px;
+}
+
+#rendered-markdown {
+    background-color: $white;
+    border: 1px solid $figureColor;
+    width: 100%;
+}
+
+#create-post {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 300;
+    background-color: $groundColor;
+    border: 1px solid $figureColor;
+    cursor: pointer;
+}

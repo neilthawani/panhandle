@@ -4,7 +4,7 @@ Compile Handlebars Templates in a Github Pages Static Site
 
 ### Developer's Note
 
-Panhandle's functionality works as-expected; however, there are some bugs with async/await that build the project in an unexpected order. If you are passionate about this idea and interested in contributing, please check out the Issues section!
+If you are passionate about this idea and interested in contributing, please check out the Issues section!
 
 ### Requirements
 
@@ -13,9 +13,7 @@ Panhandle's functionality works as-expected; however, there are some bugs with a
 ### Installation Steps
 
 1. Clone this repository.
-2. Run `npm install`
-3. Install the module globally using `npm install -g`
-4. Run `panhandle new <project-name>`
+2. Get started!
 
 ### Sample folder structure:
 
@@ -55,6 +53,14 @@ cwd/src/views
   {{> blog/post}}
 {{/base}}
 ```
+
+### Blog:
+
+"New Blog Post" displays on localhost:8080 but not in production. You can draft and preview Markdown as HTML, and Creating a Post downloads the `.md`, `.hbs`, and `.json` metadata files directly to your computer. This is because the browser doesn't have access to the user's filesystem. However, you can use the editor to easily draft and copy/paste these files into their respective directories:
+
+- `json` and `md` files go in `src/markdown/blog`
+
+Then run `npm run build-md` to create the `hbs` file and recompile the `src/views/template/blog/index.hbs` file so that it displays the post.
 
 ### Building:
 

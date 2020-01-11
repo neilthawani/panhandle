@@ -1,41 +1,34 @@
 {
-  "name": "panhandle",
+  "name": "Panhandle",
   "version": "1.0.0",
-  "description": "Compile Handlebars Templates in a Github Pages Static Site",
-  "main": "index.js",
+  "description": "Panhandle App",
+  "main": "server.js",
+  "dependencies": {
+    "handlebars": "^4.0.11",
+    "js-beautify": "^1.10.2",
+    "live-server": "^1.2.0",
+    "node-sass": "^4.8.3",
+    "nodemon": "^1.19.1",
+    "showdown": "^1.9.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build-css": "node-sass --include-path scss src/static/styles/main.scss styles/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "build-views": "node build/build.js -d cwd -p \"src/views/partials/**/*.hbs\" -l \"src/views/layouts/**/*.hbs\" -t \"src/views/templates/**/*.hbs\" -v",
+    "watch-views": "nodemon -e hbs -x \"npm run build-views\"",
+    "build-md": "node build/markdown-to-handlebars src/markdown/blog/ src/views/templates/blog/",
+    "clear-html": "rm *.html && rm **/*.html"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/neilthawani/panhandle.git"
   },
-  "keywords": [
-    "handlebars",
-    "templates",
-    "github",
-    "pages"
-  ],
   "author": "Neil Thawani",
-  "license": "MIT",
-  "bin": {
-    "panhandle": "./index.js",
-    "ph": "./index.js"
-  },
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/neilthawani/panhandle/issues"
   },
-  "homepage": "https://github.com/neilthawani/panhandle#readme",
-  "dependencies": {
-    "async--await": "^1.0.2",
-    "chalk": "^2.4.1",
-    "clear": "^0.1.0",
-    "clui": "^0.3.6",
-    "figlet": "^1.2.0",
-    "fs-extra": "^5.0.0",
-    "handlebars": "^4.0.5",
-    "lodash": "^4.17.10",
-    "minimist": "^1.2.0",
-    "mkdirp": "^0.5.1"
-  }
+  "homepage": "https://github.com/neilthawani/panhandle#readme"
 }

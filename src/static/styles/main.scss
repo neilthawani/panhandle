@@ -1,0 +1,64 @@
+@import "variables"; // variables MUST go first
+@import "mobile";
+
+@import "blog";
+@import "grid";
+@import "icons";
+@import "menu";
+
+ul {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+}
+
+a, a:-webkit-any-link {
+    background-color: $groundColor;
+    color: $figureColor;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+a.has-img {
+    background: none;
+}
+
+body {
+    background-color: $groundColor;
+    margin: 0 auto;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, "Arial Light", sans-serif;
+    font-weight: 300;
+    color: $figureColor;
+    font-size: 1.25em;
+}
+
+h1, h2, h3, h6 {
+    font-weight: inherit;
+    margin: 0;
+}
+
+// override Chrome defaults
+p {
+  margin-block-start: 0;
+}
+
+p:last-child {
+  margin-block-end: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.middle {
+    margin: 10px auto;
+}
+
+.hidden {
+    display: none;
+}

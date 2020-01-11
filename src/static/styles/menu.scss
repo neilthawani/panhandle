@@ -1,0 +1,77 @@
+.nav { // div
+    font-size: 24px;
+    background-color: $white;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 25px 100px;
+    box-shadow: 2px 2px 1px $figureColor;
+
+    a, a:-webkit-any-link {
+        background: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+}
+
+.nav-pills { // ul
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    li {
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        text-align: center;
+        border-radius: 0px;
+        background-color: $white;
+        color: $figureColor;
+
+        &:hover {
+            text-decoration: none;
+            background-color: $groundColor;
+            color: $figureColor;
+        }
+    }
+}
+
+.mobile-nav-container {
+    width: 100%;
+    background-color: $white;
+    color: $figureColor;
+    padding: 10px 0;
+    margin-bottom: 25px;
+    box-shadow: 2px 2px 1px $figureColor;
+}
+
+.mobile-nav {
+    text-align: center;
+    list-style: none;
+    padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
+
+    .mobile-nav-item {
+        display: inline;
+
+        a {
+            background: none;
+            text-decoration: none;
+            padding: 10px 15px;
+            text-align: center;
+            border-radius: 0px;
+
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+}
