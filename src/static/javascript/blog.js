@@ -52,7 +52,7 @@ var getPostAsHbs = function() {
     }
     var tagsSection = `<p class="blog-post-tags">${tagsString}</p>`;
 
-    var fileContents = `<div class="blog-post-container">\n\n${titleString}\n\n${postAsHtml}\n\n${tagsSection}\n\n${createdAtString}\n\n{{> blog-post-comment}}\n\n</div>`;
+    var fileContents = `<div class="blog-post-container">\n\n${titleString}\n\n${postAsHtml}\n\n${tagsSection}\n\n${createdAtString}\n\n</div>`;
 
     var fullTemplate = `{{#> base}}\n\n${fileContents}\n\n{{/base}}`;
 
