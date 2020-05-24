@@ -46,7 +46,7 @@ var getPostAsHbs = function() {
     var createdAtString = `<p class="blog-post-created-at">Published ${createdAt}</p>`;
     var tagsString = "";
     if (metaJson["tags"].toString().length > 0) {
-        tagsString = tags.map((tag) => {
+        tagsString = metaJson['tags'].map((tag) => {
             return `<span class="blog-post-tag">${tag}</span>`;
         }).join("");
     }
@@ -60,14 +60,14 @@ var getPostAsHbs = function() {
 }
 
 var downloadPostContent = function() {
-    var markdownText = document.getElementById("new-post-textarea").value;
-    var markdownFilename = `${markdownText}.md`;
+    var metaJson = getMetaJson();
+
+    var markdownFilename = `${metaJson['slug']}.md`;
     var mdLink = document.createElement("a");
-    mdLink.setAttribute("href", "data:text/md;chartset=utf-8" + encodeURIComponent(markdownText));
+    mdLink.setAttribute("href", "data:text/md;chartset=utf-8" + encodeURIComponent(markdownFilename));
     mdLink.setAttribute("download", markdownFilename);
     mdLink.click();
 
-    var metaJson = getMetaJson();
     var jsonFileContents = JSON.stringify(metaJson, null, 2);
     var jsonFilename = `${metaJson['slug']}.json`;
     var jsonLink = document.createElement('a');
