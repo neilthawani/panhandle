@@ -3,6 +3,8 @@ const showdown  = require('showdown');
 const beautifyHtml = require('js-beautify').html;
 const path = require("path");
 
+// use this to append new blog posts to blog/index.hbs
+
 // Usage:
 // node build/markdown-to-handlebars src/markdown/blog/ src/views/templates/blog/
 // aliased as `npm run build-md` in package.json
