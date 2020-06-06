@@ -2,7 +2,7 @@
 function renderMarkdownAsHtml() {
   var text = document.getElementById("new-post-textarea").value,
       target = document.getElementById("rendered-markdown"),
-      converter = new showdown.Converter(),
+      converter = new showdown.Converter({tables: true}),
       html = converter.makeHtml(text);
 
     target.innerHTML = html;
