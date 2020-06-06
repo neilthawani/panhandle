@@ -25,7 +25,7 @@ try {
 if (isDirectory) {
     console.log(`Parsing files in directory "${from}" to "${toFolder}"`);
 
-    var showdownConverter = new showdown.Converter(),
+    var showdownConverter = new showdown.Converter({tables: true}),
         blogPostArray = [];
 
     var files = fs.readdirSync(from);
