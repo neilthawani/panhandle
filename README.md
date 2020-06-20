@@ -13,7 +13,8 @@ If you are passionate about this idea and interested in contributing, please che
 ### Installation Steps
 
 1. Clone this repository.
-2. Get started!
+2. `npm install`
+3. Get started by opening the directory in an IDE and running `node server.js` in the console!
 
 ### Sample folder structure:
 
